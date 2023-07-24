@@ -1,0 +1,67 @@
+Imports System
+Imports System.Data.SqlClient
+
+Module Program
+    Sub Main(args As String())
+        Console.WriteLine("Hello World!")
+
+
+
+        Dim con As SqlConnection = New SqlConnection()
+
+        con.ConnectionString = "Data Source=CAN-5951-22; Initial Catalog=srf; Integrated Security=true"
+
+        Try
+            con.Open()
+
+            For i As Integer = 1 To 1
+                Dim studid As Integer
+                Dim name As String
+                Dim dept As String
+                Dim percentage As Decimal
+                Dim year As Integer
+
+
+                Console.WriteLine("Enter Studentid " & i & ":")
+                studid = Convert.ToInt32(Console.ReadLine())
+
+                Console.WriteLine("Enter Student name " & i & ":")
+                name = Console.ReadLine()
+
+                Console.WriteLine("Enter Student dept " & i & ":")
+                dept = (Console.ReadLine())
+
+                Console.WriteLine("Enter Percentage " & i & ":")
+                percentage = Convert.ToDecimal(Console.ReadLine())
+
+                Console.WriteLine("Enter year " & i & ":")
+                year = Convert.ToInt32(Console.ReadLine())
+
+                'Dim cmd As SqlCommand = New SqlCommand("CREATE TABLE studentxample (studid INT, name VARCHAR(20),dept VARCHAR(20), percentage FLOAT,year)", con)
+
+                Dim query As String = "INSERT INTO studentxample VALUES(" & studid & " , '" & name & "', '" & dept & "'," & percentage & " ," & year & ")"
+                Dim cmd As SqlCommand = New SqlCommand(query, con)
+                cmd.ExecuteNonQuery()
+            Next
+
+            Console.WriteLine("Data updated")
+
+            Dim selectQuery = "SELECT * FROM studentxample"
+            Dim selectCmd As SqlCommand = New SqlCommand(selectQuery, con)
+
+            Dim reader As SqlDataReader = selectCmd.ExecuteReader()
+
+            While reader.Read()
+                Console.WriteLine("ID : {0}, Name: {1},dept: {2},percentage: {3},year: {4}", reader("studid"), reader("name"), reader("dept"), reader("percentage"), reader("year"))
+            End While
+
+        Catch ex As Exception
+            Console.WriteLine(ex)
+        Finally
+            con.Close()
+        End Try
+
+
+    End Sub
+End Module
+
