@@ -1,0 +1,81 @@
+use studentdb
+
+select * from studentexample1
+
+
+--------------------------------------------------------------------------------------------------------------------------
+create table readstudent(stu_id int primary key, name varchar(29), department varchar(30), percentage float, year int)
+select * from readstudent
+insert into readstudent values(011,'deepak','ece',98,2023)
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE student_details (
+    sturollno INT PRIMARY KEY,
+    name VARCHAR(50),
+    attendance_percentage FLOAT
+);
+
+CREATE TABLE sport_details (
+    collegeregno INT PRIMARY KEY,
+    name VARCHAR(50),
+    attendance_percentage FLOAT
+);
+
+INSERT INTO student_details (sturollno, name, attendance_percentage)
+VALUES
+    (111, 'deepak', 85.3),
+    (222, 'sathish', 78.5),
+    (333, 'prasanth', 92.2),
+    (444, 'parthiban', 80.8),
+    (555, 'benito', 88.2);
+
+INSERT INTO sport_details (collegeregno,  name, attendance_percentage)
+VALUES
+(333, 'prasanth', 92.2),
+ (555, 'benito', 88.2),
+    (101,'deepak', 75.1),
+    (102, 'vijay', 70.3),
+    (103, 'ajith', 85.9),
+    (104, 'vikram', 90.0),
+    (105, 'sk', 82.1);
+
+
+
+	---------------------------
+	select * from student_details
+	select * from sport_details
+
+
+	create table commondata(id int, name varchar(20), percentage float)
+
+
+
+	select * from commondata
+		select * from common_data
+	------------------------------------------------4
+	select * from sortemployee
+
+
+	------------------------------------------------5
+
+	create table fifthtask(taskid int primary key, taskname varchar(25), taskduraction float, tasktoughlevel int )
+
+
+	select * from fifthtask
+
+
+INSERT INTO fifthtask (taskid, taskname, taskduraction, tasktoughlevel) VALUES
+(1, 'Task 1', 2.5, 3),
+(2, 'Task 2', 1.8, 2),
+(3, 'Task 3', 4.2, 5),
+(4, 'Task 4', 3.0, 4),
+(5, 'Task 5', 6.1, 2),
+(6, 'Task 6', 0.5, 1),
+(7, 'Task 7', 2.0, 3),
+(8, 'Task 8', 1.2, 2),
+(9, 'Task 9', 5.5, 4),
+(10,'Task 10', 3.8, 3);
+
+
